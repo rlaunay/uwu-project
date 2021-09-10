@@ -3,11 +3,14 @@ import fs from "fs";
 
 export default async function genEslintConf(answer: AnswerSetup) {
   const rootPath = `./${answer.name}/.eslintrc.json`;
-  if (answer.lang === "ts") {
-    fs.writeFileSync(rootPath, JSON.stringify(tsEsConf, null, 2));
-  } else {
-    fs.writeFileSync(rootPath, JSON.stringify(jsEsConf, null, 2));
-  }
+  fs.writeFileSync(
+    rootPath, 
+    JSON.stringify(
+      answer.lang === "ts" ? tsEsConf : jsEsConf, 
+      null,  
+      2
+    )
+  );
 }
 
 const jsEsConf = {

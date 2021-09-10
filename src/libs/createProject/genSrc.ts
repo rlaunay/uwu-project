@@ -43,6 +43,13 @@ export default async function genSrc(answer: AnswerSetup) {
   fs.writeFileSync(`${srcPath}/index.${styleExt}`, '');
   fs.writeFileSync(`${srcPath}/App.${scriptExt}x`, app.join('\n'));
 
+  if (lang === 'ts') {
+    fs.writeFileSync(
+      `${srcPath}/vite-env.d.ts`, 
+      '/// <reference types="vite/client" />\n'
+    );
+  }
+
   fs.mkdirSync(`${srcPath}/components`);
   fs.mkdirSync(`${srcPath}/pages`);
   fs.mkdirSync(`${srcPath}/hooks`);
