@@ -2,7 +2,7 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers'
 import createComp from './libs/createComp';
-import generateProject from "./libs/createProject/projectGeneractor";
+import generateProject from "./libs/createProject";
 
 yargs(hideBin(process.argv))
   .command('new', 'Create React project with vite',  generateProject)
